@@ -34,7 +34,7 @@ const SiteLayout = ({ children }) => {
         <ActiveLink href="/">Home</ActiveLink>
         <div style={{ display: 'inline-block', marginLeft: '15px' }}>
           <ActiveLink href="/account-settings/basic-information">
-            Basic Information
+            Account Settings
           </ActiveLink>
         </div>
         <br />
