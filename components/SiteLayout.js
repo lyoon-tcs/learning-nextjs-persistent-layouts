@@ -1,14 +1,41 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+
+const ActiveLink = ({ children, href }) => {
+  const router = useRouter();
+
+  return (
+    <Link href={href} scroll={false} legacyBehavior>
+      <a
+        style={
+          router.pathname === href
+            ? {
+                border: '1px solid red',
+                display: 'inline-block',
+                padding: '14px'
+              }
+            : {
+                border: '1px solid blue',
+                display: 'inline-block',
+                padding: '14px'
+              }
+        }
+      >
+        {children}
+      </a>
+    </Link>
+  );
+};
 
 const SiteLayout = ({ children }) => {
   return (
     <>
       <nav>
-        <Link href="/">Home</Link>
+        <ActiveLink href="/">Home</ActiveLink>
         <div style={{ display: 'inline-block', marginLeft: '15px' }}>
-          <Link href="/account-settings/basic-information">
-            Account Settings
-          </Link>{' '}
+          <ActiveLink href="/account-settings/basic-information">
+            Basic Information
+          </ActiveLink>
         </div>
         <br />
         <br />
